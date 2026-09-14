@@ -1,0 +1,21 @@
+# --- Flask glue app ---
+flask
+gunicorn
+
+# --- SkillSyncer automation (scan.py) ---
+# Pinned to match the exact Chromium build baked into the Dockerfile's
+# base image (mcr.microsoft.com/playwright/python:v1.62.0-jammy). If pip
+# resolves a newer playwright than what the image's browser binaries
+# match, launch() fails with "Executable doesn't exist at ...chrome-headless-shell".
+playwright==1.62.0
+pdfplumber
+
+# --- ATS keyword injector (ats_engine/*.py) ---
+pypdf
+reportlab
+requests
+fonttools
+otf2ttf
+
+# --- local_inject.py fallback backend (used only if no GEMINI_API_KEY) ---
+scikit-learn

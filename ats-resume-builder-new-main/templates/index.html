@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ResuPrime — ATS Resume Optimizer</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+<link rel="manifest" href="/static/site.webmanifest">
+<meta name="theme-color" content="#090d16">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          background: "#090d16",
+          surface: "#0f172a",
+          "surface-high": "#1e293b",
+          "surface-field": "#0b1120",
+          border: "#1e293b",
+          "border-hover": "#334155",
+          accent: "#38bdf8",
+          primary: "#6366f1",
+          ink: "#f8fafc",
+          muted: "#94a3b8",
+          good: "#10b981",
+          warn: "#f59e0b",
+          bad: "#ef4444",
+        },
+        fontFamily: {
+          display: ["Sora", "sans-serif"],
+          body: ["Inter", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body {
+    background-color: #090d16;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.10) 0px, transparent 50%);
+  }
+
+  .glow-card {
+    position: relative;
+    border-radius: 1rem;
+    background: #0f172a;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(99, 102, 241, 0.15);
+  }
+
+  textarea, input[type="file"] {
+    width: 100%;
+    background: #0b1120 !important;
+    color: #f8fafc !important;
+    border: 1px solid #1e293b;
+    border-radius: 0.75rem;
+    padding: 14px;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  textarea::placeholder { color: #64748b !important; }
+  textarea { min-height: 180px; resize: vertical; }
+  textarea:focus, input[type="file"]:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+  input[type="file"] {
+    padding: 24px 16px;
+    border-style: dashed;
+    border-color: #334155;
+    cursor: pointer;
+    color: #94a3b8;
+  }
+  input[type="file"]:hover {
+    border-color: #38bdf8;
+  }
+  input[type="file"]::file-selector-button {
+    background: #1e293b;
+    color: #38bdf8;
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-right: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  input[type="file"]::file-selector-button:hover {
+    background: #334155;
+    color: #7dd3fc;
+  }
+</style>
+</head>
+<body class="bg-background text-ink font-body min-h-screen antialiased flex flex-col">
+
+<header class="border-b border-border/80 backdrop-blur-md bg-background/80 sticky top-0 z-50">
+  <div class="max-w-screen-md mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center font-display font-black text-white text-sm shadow-md shadow-indigo-500/30">R</div>
+      <span class="font-display font-black text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">ResuPrime</span>
+    </div>
+    <span class="font-mono text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">ATS v2.4</span>
+  </div>
+</header>
+
+<main class="max-w-screen-md mx-auto px-5 py-12 flex-1">
+
+  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-mono font-medium tracking-wide mb-3 border border-cyan-500/20">
+    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+    INTELLIGENT ATS OPTIMIZER
+  </div>
+  <h1 class="font-display text-3xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
+    Pass every ATS screen with confidence.
+  </h1>
+  <p class="text-muted mt-3 text-base md:text-lg max-w-xl leading-relaxed">
+    Upload your resume PDF and paste a job description. We run a live ATS scan, identify missing keywords, and cleanly weave them into your original layout with 100% font consistency.
+  </p>
+
+  <ol class="mt-8 mb-10 grid gap-3 sm:grid-cols-3">
+    <li class="bg-surface/90 border border-border rounded-xl p-4 transition-all hover:border-slate-700">
+      <span class="inline-block px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-indigo-500/15 text-indigo-400 border border-indigo-500/30">STEP 01</span>
+      <p class="text-sm font-medium text-slate-200 mt-2">Paste JD + upload your resume PDF</p>
+    </li>
+    <li class="bg-surface/90 border border-border rounded-xl p-4 transition-all hover:border-slate-700">
+      <span class="inline-block px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">STEP 02</span>
+      <p class="text-sm font-medium text-slate-200 mt-2">View real match score & breakdown</p>
+    </li>
+    <li class="bg-surface/90 border border-border rounded-xl p-4 transition-all hover:border-slate-700">
+      <span class="inline-block px-2 py-0.5 rounded text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">STEP 03</span>
+      <p class="text-sm font-medium text-slate-200 mt-2">Optimize &amp; download updated PDF</p>
+    </li>
+  </ol>
+
+  {% if error %}
+  <div class="bg-bad/10 border border-bad/40 text-bad rounded-xl px-5 py-3.5 mb-6 text-sm flex items-center gap-3">
+    <span class="font-bold">Error:</span> {{ error }}
+  </div>
+  {% endif %}
+
+  <div class="glow-card p-6 md:p-8">
+    <form method="POST" action="/scan" enctype="multipart/form-data" id="scanForm">
+
+      <label for="jd_text" class="block font-mono text-xs font-semibold tracking-wider uppercase text-slate-300 mb-2">Job Description</label>
+      <textarea name="jd_text" id="jd_text" placeholder="Paste the target job description here...">{{ jd_text or "" }}</textarea>
+
+      <label for="resume_file" class="block font-mono text-xs font-semibold tracking-wider uppercase text-slate-300 mb-2 mt-6">Resume (PDF)</label>
+      <input type="file" name="resume_file" id="resume_file" accept=".pdf" required>
+      <div class="text-xs text-slate-400 mt-2">Upload your original PDF (up to 15MB). Interactive hyperlinks (LinkedIn, GitHub, Portfolio) are fully preserved.</div>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <button type="submit" id="submitBtn"
+          class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 text-white font-mono text-xs font-bold tracking-wider uppercase px-7 py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+          Run ATS Scan
+        </button>
+        <span class="text-sm text-cyan-400 font-medium animate-pulse" id="statusMsg" style="display:none;">
+          Analyzing resume & job description... (this takes ~25–35s)
+        </span>
+      </div>
+
+    </form>
+  </div>
+
+</main>
+
+<footer class="border-t border-border/60 py-6 mt-12 bg-background/50 text-center">
+  <p class="font-mono text-xs text-slate-500">© 2026 ResuPrime. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('scanForm').addEventListener('submit', () => {
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = 'Scanning...';
+    document.getElementById('statusMsg').style.display = 'inline';
+  });
+</script>
+</body>
+</html>

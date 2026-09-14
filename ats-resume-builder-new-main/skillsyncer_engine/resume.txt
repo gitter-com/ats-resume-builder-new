@@ -1,0 +1,106 @@
+SHAHUL HAMEED M Y
+Lead Quality Assurance Engineer | AI/LLM & Test Automation
+UAE Golden Visa Holder — based in Dubai, immediately available (no sponsorship required)
+Dubai, United Arab Emirates • +971 545798073 / +971
+543215361 • shahulhameedmy@gmail.com • linkedin.com/in/shahulhameedmy • github.com/NerdishShah
+PROFESSIONAL SUMMARY
+Quality Assurance and Test Automation leader with 15+ years across aviation, banking, and enterprise software,
+now specialized in testing generative-AI systems. Led QA teams of 20+ engineers and pioneered AI-driven quality
+engineering at Emirates — owning testing for a RAG-based HR-policy chatbot and an agentic AI test-automation
+platform (Playwright MCP + Claude Opus/Sonnet). Skilled in evaluating non-deterministic LLM outputs, RAG
+pipeline quality (retrieval relevance, chunk quality, end-to-end answer accuracy), prompt regression, conversational
+context validation, and AI security testing (prompt injection, data leakage, output safety). Turn fuzzy AI quality into
+business-aligned metrics and lower defect-escape rates, while fostering a blameless, quality-first culture. Advocate
+building agentic AI testing on Claude Code (MCP, subagents, headless CI) rather than bespoke or vendor-locked
+platforms.
+CORE SKILLS
+• AI / LLM & GenAI Testing: RAG pipeline testing (retrieval precision/recall, chunk quality, end-to-end
+answer accuracy), LLM evaluation (DeepEval, custom quality metrics, human-in-the-loop pipelines), prompt
+regression testing, non-deterministic output validation, conversational context & memory-retrieval testing,
+agent testing (tool-call reliability, decision-path validation, loop detection)
+• AI Security Testing: prompt injection & jailbreak testing (direct/indirect), PII & sensitive-data leakage
+probes, system-prompt disclosure checks, hallucination / toxicity / bias detection, guardrail verification,
+content-policy compliance
+• Agentic AI Tooling: Playwright MCP (Model Context Protocol), Playwright CLI, Claude Code, GitHub Copilot,
+Claude (Opus/Sonnet)
+• Test Automation: Playwright, Selenium WebDriver, WebdriverIO, Appium; TestNG, JUnit, Cucumber (BDD),
+Karate, Jest, Mocha, RestAssured, Postman
+• Languages: Java, JavaScript, Python, Groovy, SQL
+• API & Performance: Contract / integration / load testing; RestAssured, Postman, PACT, WireMock; JMeter,
+Gatling, K6 (latency-percentile, token-usage & cost-per-request analysis for AI workloads)
+• Security: OWASP ZAP, Burp Suite, SonarQube | CI/CD & VCS: Jenkins, Git, GitHub Actions
+• Cloud & Containers: AWS, Azure, Docker, Kubernetes, OpenShift | Observability: ELK Stack
+• Process & Leadership: QE strategy, test architecture, team leadership & mentoring, Agile/Scrum, SDLC,
+risk-based testing, quality metrics & business-outcome reporting, JIRA, Confluence
+PROFESSIONAL EXPERIENCE
+Emirates — Lead Quality Assurance Engineer
+Dubai, UAE | Feb 2023 – Jan 2026
+• Led a multidisciplinary QA team of 20+ engineers, owning test strategy and automation architecture across
+Emirates' digital platforms and, latterly, its generative-AI initiatives.
+• RAG chatbot quality: Owned QA for an HR-policy conversational AI chatbot (Retrieval-Augmented
+Generation) — validated retrieval relevance, chunk quality, and end-to-end answer accuracy against the HR
+knowledge base, and tested conversational context maintenance and memory-retrieval accuracy across
+multi-turn flows.
+• Non-deterministic test strategy: Designed evaluation approaches for LLM outputs where exact-match
+assertions fail — established "good enough" quality boundaries, custom scoring metrics, human-in-the-
+loop review, and prompt regression detection across diverse inputs.
+• AI security testing: Executed prompt injection and jailbreak attempts (direct/indirect), PII and sensitive-HR-
+data leakage probes, and system-prompt disclosure checks; validated output safety (hallucination, toxicity,
+bias, content-policy) and verified guardrails actually held.
+• Agentic AI automation: Pioneered agentic AI testing for the SkyExpress platform — integrated Playwright
+MCP with Claude (Opus for test planning, Sonnet for test-case authoring and self-healing) via GitHub
+Copilot and Claude Code, enabling AI-agent-driven browser automation and cutting manual test-authoring
+effort ~35%.
+• Established quality metrics that connect to business outcomes (defect-escape rate, user-reported issues,
+AI-specific quality indicators) rather than vanity pass/fail counts, and drove ~35% gains in team efficiency.
+• Partnered across development, product, and data teams to embed quality early — making testing easy to
+adopt and shifting quality left without friction.
+SHRAS IT Solutions — Senior Quality Assurance Engineer (Client: Aviation / Emirates)
+Dubai, UAE | Dec 2021 – Jan 2023
+• Designed and maintained the test automation framework securing quality and reliability of the airline's
+digital systems.
+• Authored detailed test plans and multi-layer test scenarios; improved coverage and execution efficiency
+through automation.
+• Enforced data integrity with SQL-based database testing and conducted cross-platform usability testing.
+Altimetrik India Pvt Ltd — Senior Staff Engineer, Quality Engineering
+Chennai, India | Apr 2021 – Dec 2021
+• Built a scalable Selenium WebDriver framework (Page Object Model), improving test maintenance and
+execution efficiency by 40%.
+• Automated 1000+ regression cases across web and mobile, cutting testing time 70% with no loss of quality.
+• Delivered a centralized SQL-based test data management solution; improved defect resolution time 25%.
+Emirates NBD — Automation Test Lead
+Dubai, UAE | Aug 2018 – Mar 2021
+• Led end-to-end automation framework builds from scratch (RestAssured + Java + TestNG), achieving 100%
+API test coverage across all service layers.
+• Stood up CI/CD pipelines for API automation in Jenkins, enabling automated execution and reporting.
+• Delivered against the Retail Transformation program, revamping online and mobile banking applications.
+Wipro Ltd — Technical Lead
+Chennai, India | Dec 2017 – Aug 2018
+• Implemented a Jenkins + Docker CI/CD pipeline reaching 90%+ automated test coverage.
+• Scaled performance testing by integrating JMeter with cloud-based load generators; mentored a team of 8
+QA engineers.
+Newt Global — Senior Software Automation Engineer
+Chennai, India | May 2016 – Nov 2017
+• Built a custom test reporting framework for real-time visibility into results, defects, and quality metrics;
+championed BDD with Cucumber, raising testing efficiency 30%.
+HCL Technologies Ltd — Senior Software Engineer
+Chennai, India | Dec 2010 – Apr 2016
+• Introduced TDD across the SDLC (30% defect-rate reduction) and delivered automation that cut testing
+cycles 40% while sustaining quality.
+PROJECTS
+Nexus Hiring — Technical Assessment Platform (personal project)
+• Built a Playwright-based technical-assessment platform for hiring test-automation engineers — auto-
+provisions a per-candidate GitHub Codespace with randomized coding challenges (UI and API tracks,
+multiple languages).
+• Runs hidden mutation-based grading server-side and auto-revokes candidate access on expiry — fully
+automated candidate lifecycle.
+• Engineered with zero external database (state encoded in repo names/git) and zero paid seats —
+deliberately low-cost, low-ops.
+• Automated the full SDLC and STLC with Claude Code (Anthropic's agentic coding CLI) — AI-driven
+development, test generation, and execution — a working proof of the "build agentic automation on
+Claude Code, not vendor-locked AI" approach.
+• Stack: Node.js, Fastify, React/Vite, GitHub API.
+EDUCATION
+Bachelor of Computer Applications (BCA)
+CERTIFICATIONS
+ISTQB Certified Tester — Foundation Level (CTFL)

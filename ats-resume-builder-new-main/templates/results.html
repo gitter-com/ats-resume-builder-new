@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scan Results — ResuPrime</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+<link rel="manifest" href="/static/site.webmanifest">
+<meta name="theme-color" content="#090d16">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          background: "#090d16",
+          surface: "#0f172a",
+          "surface-high": "#1e293b",
+          border: "#1e293b",
+          accent: "#38bdf8",
+          primary: "#6366f1",
+          ink: "#f8fafc",
+          muted: "#94a3b8",
+          good: "#10b981",
+          warn: "#f59e0b",
+          bad: "#ef4444",
+        },
+        fontFamily: {
+          display: ["Sora", "sans-serif"],
+          body: ["Inter", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  body {
+    background-color: #090d16;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.10) 0px, transparent 50%);
+  }
+
+  .score-circle {
+    width: 116px; height: 116px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 0 24px -4px rgba(56, 189, 248, 0.2);
+  }
+  .score-circle::before {
+    content: "";
+    position: absolute;
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    background: #0f172a;
+  }
+  .score-circle span { position: relative; z-index: 1; }
+
+  .kw-chip {
+    background: rgba(99, 102, 241, 0.12);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    color: #c7d2fe;
+    border-radius: 9999px;
+    padding: 6px 14px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+  }
+  .kw-chip:hover {
+    border-color: #818cf8;
+    background: rgba(99, 102, 241, 0.2);
+  }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.70rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    padding: 14px 16px;
+    border-bottom: 1px solid #1e293b;
+    background: #0d1527;
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #172033;
+    font-size: 0.88rem;
+    color: #e2e8f0;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: #131d33; }
+
+  .badge-score {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+  .badge-good { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .badge-mid  { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .badge-low  { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+  .optimize-done {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #34d399;
+  }
+  .optimize-done.is-error {
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #f87171;
+  }
+</style>
+</head>
+<body class="bg-background text-ink font-body min-h-screen antialiased flex flex-col">
+
+<header class="border-b border-border/80 backdrop-blur-md bg-background/80 sticky top-0 z-50">
+  <div class="max-w-screen-lg mx-auto px-5 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-2">
+      <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-indigo-500 to-cyan-400 flex items-center justify-center font-display font-black text-white text-sm shadow-md shadow-indigo-500/30">R</div>
+      <span class="font-display font-black text-lg tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">ResuPrime</span>
+    </div>
+    <a class="font-mono text-xs text-sky-400 hover:text-sky-300 transition-colors flex items-center gap-1" href="/">
+      &larr; Run another scan
+    </a>
+  </div>
+</header>
+
+<main class="max-w-screen-lg mx-auto px-5 py-10 flex-1 w-full">
+
+  <h1 class="font-display text-2xl md:text-3xl font-black tracking-tight text-white mb-6">ATS Scan Results</h1>
+
+  {% if report.status %}
+    <div class="bg-surface border border-border rounded-xl p-6 text-slate-300">{{ report.status }}</div>
+  {% else %}
+
+  {% set score_raw = (report.overall_score|string).replace('%', '').strip() if report.overall_score else '0' %}
+  {% set score_num = (score_raw.split('.')[0] or '0')|int %}
+
+  <!-- Overall Match Score Banner -->
+  <div class="flex flex-col sm:flex-row items-center gap-6 bg-surface border border-slate-700/60 rounded-2xl p-6 md:p-8 mb-8 shadow-xl shadow-black/30">
+    {% if score_num >= 80 %}
+      <div class="score-circle" style="background: conic-gradient(#10b981 calc({{ score_num }} * 1%), #1e293b 0); --pct: {{ score_num }};">
+        <span class="font-mono text-2xl font-black text-emerald-400">{{ score_raw }}%</span>
+      </div>
+    {% elif score_num >= 60 %}
+      <div class="score-circle" style="background: conic-gradient(#f59e0b calc({{ score_num }} * 1%), #1e293b 0); --pct: {{ score_num }};">
+        <span class="font-mono text-2xl font-black text-amber-400">{{ score_raw }}%</span>
+      </div>
+    {% else %}
+      <div class="score-circle" style="background: conic-gradient(#ef4444 calc({{ score_num }} * 1%), #1e293b 0); --pct: {{ score_num }};">
+        <span class="font-mono text-2xl font-black text-rose-400">{{ score_raw }}%</span>
+      </div>
+    {% endif %}
+
+    <div class="text-center sm:text-left flex-1">
+      <div class="flex items-center justify-center sm:justify-start gap-2.5 mb-1">
+        <span class="font-mono text-xs font-semibold tracking-wider uppercase text-cyan-400">Overall Match Score</span>
+        {% if score_num >= 80 %}
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">High Match</span>
+        {% elif score_num >= 60 %}
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30">Moderate Match</span>
+        {% else %}
+          <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-rose-500/15 text-rose-400 border border-rose-500/30">Needs Optimization</span>
+        {% endif %}
+      </div>
+      <p class="text-white font-display text-xl md:text-2xl font-extrabold">{{ report.keywords|length }} keywords analyzed across your resume</p>
+      <p class="text-slate-400 text-sm mt-1">SkillSyncer ATS evaluation comparing your profile against required keywords in the job description.</p>
+    </div>
+  </div>
+
+  <!-- Category Breakdown Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+    {% for name, data in report.category_breakdown.items() %}
+    <div class="bg-surface border border-slate-800 rounded-2xl p-5 hover:border-slate-700 transition-all shadow-md">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="font-display font-bold text-sm text-slate-200">{{ name }}</h3>
+        {% if 'Hard' in name %}
+          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+        {% elif 'Soft' in name %}
+          <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+        {% else %}
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        {% endif %}
+      </div>
+      {% if data %}
+        {% set cat_pct = (data.percent or "0%").rstrip('%')|int %}
+        <div class="font-mono text-3xl font-black mb-3 {% if cat_pct >= 75 %}text-emerald-400{% elif cat_pct >= 50 %}text-amber-400{% else %}text-rose-400{% endif %}">
+          {{ data.percent or "—" }}
+        </div>
+        <div class="flex flex-wrap gap-2 text-xs">
+          <span class="px-2.5 py-1 rounded-md bg-rose-500/10 text-rose-300 border border-rose-500/20">
+            Not found: <b class="text-rose-200">{{ data.not_found|length }}</b>
+          </span>
+          {% if data.frequency_variance %}
+          <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20">
+            Freq variance: <b class="text-amber-200">{{ data.frequency_variance|length }}</b>
+          </span>
+          {% endif %}
+        </div>
+      {% else %}
+        <span class="text-muted text-sm">No data</span>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- Optimize Section -->
+  <div class="bg-gradient-to-b from-[#111c38] to-[#0f172a] border border-indigo-500/30 rounded-2xl p-6 md:p-8 mb-8 shadow-xl">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">AI ATS ENHANCER</span>
+    </div>
+    <h2 class="font-display font-extrabold text-xl md:text-2xl text-white mb-2">Optimize your resume</h2>
+    {% if missing_keywords %}
+      <p class="text-slate-300 text-sm max-w-2xl leading-relaxed mb-6">
+        These <b class="text-white">{{ missing_keywords|length }}</b> keyword(s) scored 0% ("Not Found") on the ATS scan. Clicking below will naturally integrate them into your existing bullet points while strictly preserving font uniformity, clickable links, and original page geometry.
+      </p>
+      <div class="flex flex-wrap gap-2.5 mb-7">
+        {% for kw in missing_keywords %}
+        <span class="kw-chip">{{ kw }}</span>
+        {% endfor %}
+      </div>
+      <div id="optimizeArea" class="flex flex-wrap items-center gap-4">
+        <button type="button" id="optimizeBtn" data-sid="{{ sid }}"
+          class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 text-white font-mono text-xs font-bold tracking-wider uppercase px-7 py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 active:scale-[0.98] transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+          Optimize &amp; Download Resume
+        </button>
+        <span class="optimize-status text-sm text-cyan-300 font-medium animate-pulse" id="optimizeStatus" style="display:none;">
+          Weaving missing keywords into PDF & preserving clickable links... (takes ~20–40s)
+        </span>
+      </div>
+      <div class="optimize-done mt-4 rounded-xl px-5 py-3.5 text-sm font-medium" id="optimizeDone" style="display:none;"></div>
+    {% else %}
+      <p class="text-emerald-400 text-sm font-medium">No missing (0%) keywords found — your resume already covers everything flagged as "Not Found." Nothing to inject.</p>
+    {% endif %}
+  </div>
+
+  <!-- Full Keyword Table -->
+  <div class="flex items-center justify-between mb-4">
+    <h2 class="font-display font-bold text-lg md:text-xl text-white">Full Keyword Table</h2>
+    <span class="text-xs font-mono text-slate-400">{{ report.keywords|length }} total entries</span>
+  </div>
+  <div class="bg-surface border border-slate-800 rounded-2xl overflow-hidden shadow-lg mb-12">
+    <table id="keywordTable">
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Type</th>
+          <th>Score</th>
+          <th>Resume Count</th>
+          <th>Job Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in report.keywords %}
+        <tr>
+          <td class="font-medium text-white">{{ row.keyword }}</td>
+          <td class="text-slate-400">{{ row.type }}</td>
+          {% set numeric_score = row.score.rstrip('%')|float(0) %}
+          <td>
+            <span class="badge-score {% if numeric_score >= 70 %}badge-good{% elif numeric_score >= 30 %}badge-mid{% else %}badge-low{% endif %}">
+              {{ row.score }}
+            </span>
+          </td>
+          <td class="font-mono text-slate-300">{{ row.resume_count }}</td>
+          <td class="font-mono text-slate-300">{{ row.job_count }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  {% endif %}
+</main>
+
+<footer class="border-t border-border/60 py-6 bg-background/50 text-center">
+  <p class="font-mono text-xs text-slate-500">© 2026 ResuPrime. All rights reserved.</p>
+</footer>
+
+<script>
+  const optimizeBtn = document.getElementById('optimizeBtn');
+  if (optimizeBtn) {
+    optimizeBtn.addEventListener('click', async () => {
+      const statusEl = document.getElementById('optimizeStatus');
+      const doneEl = document.getElementById('optimizeDone');
+      const sid = optimizeBtn.dataset.sid;
+
+      optimizeBtn.disabled = true;
+      optimizeBtn.textContent = 'Optimizing...';
+      statusEl.style.display = 'inline';
+      doneEl.style.display = 'none';
+
+      try {
+        const resp = await fetch('/optimize/' + sid, { method: 'POST' });
+        if (!resp.ok) {
+          let errMsg = 'Request failed with status ' + resp.status;
+          try {
+            const data = await resp.json();
+            if (data && data.error) errMsg = data.error;
+          } catch (_) {
+            const text = await resp.text();
+            if (text) {
+              const tempDiv = document.createElement('div');
+              tempDiv.innerHTML = text;
+              errMsg = tempDiv.innerText.replace(/\s+/g, ' ').trim() || text;
+            }
+          }
+          throw new Error(errMsg);
+        }
+
+        const blob = await resp.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'optimized_resume.pdf';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.URL.revokeObjectURL(url);
+
+        doneEl.textContent = '✓ Optimization completed! Your updated resume has been downloaded with uniform typography and clickable LinkedIn, GitHub, Portfolio, and email links.';
+        doneEl.classList.remove('is-error');
+        doneEl.style.display = 'block';
+        optimizeBtn.textContent = 'Optimize & Download Resume';
+        optimizeBtn.disabled = false;
+      } catch (err) {
+        doneEl.textContent = 'Optimization failed: ' + err.message;
+        doneEl.classList.add('is-error');
+        doneEl.style.display = 'block';
+        optimizeBtn.textContent = 'Optimize & Download Resume';
+        optimizeBtn.disabled = false;
+      } finally {
+        statusEl.style.display = 'none';
+      }
+    });
+  }
+</script>
+</body>
+</html>

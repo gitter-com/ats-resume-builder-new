@@ -1,0 +1,297 @@
+{
+  "url": "https://app.skillsyncer.com/scans/966566a0-9146-467f-b747-a616575d4481/update",
+  "buttons": [
+    {
+      "text": "Upgrade Now",
+      "visible": false
+    },
+    {
+      "text": "Close",
+      "visible": false
+    },
+    {
+      "text": "New Scan",
+      "visible": true
+    },
+    {
+      "text": "Upgrade",
+      "visible": true
+    },
+    {
+      "text": "Back to Scan",
+      "visible": true
+    },
+    {
+      "text": "Export PDF",
+      "visible": true
+    },
+    {
+      "text": "Export DOCX Premium",
+      "visible": true
+    },
+    {
+      "text": "Insert Resume",
+      "visible": true
+    },
+    {
+      "text": "Rescan",
+      "visible": true
+    },
+    {
+      "text": "Offline",
+      "visible": true
+    },
+    {
+      "text": "Auto Optimize Resume",
+      "visible": true
+    },
+    {
+      "text": "Choose which keywords to use",
+      "visible": true
+    },
+    {
+      "text": "Report",
+      "visible": true
+    },
+    {
+      "text": "Job",
+      "visible": true
+    },
+    {
+      "text": "AI",
+      "visible": true
+    },
+    {
+      "text": "Needs review 43",
+      "visible": true
+    },
+    {
+      "text": "Missing 39",
+      "visible": true
+    },
+    {
+      "text": "Covered 22",
+      "visible": true
+    },
+    {
+      "text": "All 65",
+      "visible": true
+    },
+    {
+      "text": "Score",
+      "visible": true
+    },
+    {
+      "text": "Resume",
+      "visible": true
+    },
+    {
+      "text": "Job",
+      "visible": true
+    },
+    {
+      "text": "Audit",
+      "visible": true
+    },
+    {
+      "text": "Audit Reports",
+      "visible": true
+    },
+    {
+      "text": "Capa",
+      "visible": true
+    },
+    {
+      "text": "Computer Science",
+      "visible": true
+    },
+    {
+      "text": "Corrective And Preventive Actions",
+      "visible": true
+    },
+    {
+      "text": "Iso",
+      "visible": true
+    },
+    {
+      "text": "ISO 9001",
+      "visible": true
+    },
+    {
+      "text": "Management Review",
+      "visible": true
+    },
+    {
+      "text": "Preventive Actions",
+      "visible": true
+    },
+    {
+      "text": "Process Enhancements",
+      "visible": true
+    },
+    {
+      "text": "Production Teams",
+      "visible": true
+    },
+    {
+      "text": "Project Managers",
+      "visible": true
+    },
+    {
+      "text": "Quality Control",
+      "visible": true
+    },
+    {
+      "text": "Quality Management",
+      "visible": true
+    },
+    {
+      "text": "Regulatory Standards",
+      "visible": true
+    },
+    {
+      "text": "Root Cause Analysis",
+      "visible": true
+    },
+    {
+      "text": "Six Sigma",
+      "visible": true
+    },
+    {
+      "text": "Technical Knowledge",
+      "visible": true
+    },
+    {
+      "text": "Testing Tools",
+      "visible": true
+    },
+    {
+      "text": "Score",
+      "visible": true
+    },
+    {
+      "text": "Resume",
+      "visible": true
+    },
+    {
+      "text": "Job",
+      "visible": true
+    },
+    {
+      "text": "Collaborate",
+      "visible": true
+    },
+    {
+      "text": "Consistent",
+      "visible": true
+    },
+    {
+      "text": "Continuous Improvement",
+      "visible": true
+    },
+    {
+      "text": "Coordinate",
+      "visible": true
+    },
+    {
+      "text": "Create",
+      "visible": true
+    },
+    {
+      "text": "Cross Functional Teams",
+      "visible": true
+    },
+    {
+      "text": "Detail Oriented",
+      "visible": true
+    },
+    {
+      "text": "Focused",
+      "visible": true
+    },
+    {
+      "text": "Investigate",
+      "visible": true
+    },
+    {
+      "text": "Monitor",
+      "visible": true
+    },
+    {
+      "text": "Problem Solving",
+      "visible": true
+    },
+    {
+      "text": "Troubleshoot",
+      "visible": true
+    },
+    {
+      "text": "Analysis",
+      "visible": true
+    },
+    {
+      "text": "Management",
+      "visible": true
+    },
+    {
+      "text": "Score",
+      "visible": true
+    },
+    {
+      "text": "Resume",
+      "visible": true
+    },
+    {
+      "text": "Job",
+      "visible": true
+    },
+    {
+      "text": "Control",
+      "visible": true
+    },
+    {
+      "text": "Documentation",
+      "visible": true
+    },
+    {
+      "text": "Implement",
+      "visible": true
+    },
+    {
+      "text": "Production",
+      "visible": true
+    },
+    {
+      "text": "Reports",
+      "visible": true
+    },
+    {
+      "text": "Science",
+      "visible": true
+    },
+    {
+      "text": "Team Members",
+      "visible": true
+    },
+    {
+      "text": "Workflows",
+      "visible": true
+    },
+    {
+      "text": "Compliance",
+      "visible": true
+    },
+    {
+      "text": "Products",
+      "visible": true
+    },
+    {
+      "text": "Generate",
+      "visible": false
+    },
+    {
+      "text": "Close",
+      "visible": false
+    }
+  ]
+}
