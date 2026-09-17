@@ -369,9 +369,7 @@ def optimize(sid):
         download_name="optimized_resume.pdf",
         mimetype="application/pdf",
     )
-@app.route("/ping")
-def ping():
-    return "Alive", 200
+
 
 if __name__ == "__main__":
     port = 5000
